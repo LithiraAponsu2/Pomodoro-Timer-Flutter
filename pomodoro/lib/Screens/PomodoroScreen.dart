@@ -4,12 +4,17 @@ import 'package:pomodoro/widgets/progresswidget.dart';
 import 'package:pomodoro/widgets/timecontroller.dart';
 import 'package:pomodoro/widgets/timeoptions.dart';
 import 'package:pomodoro/widgets/timercard.dart';
+import 'package:provider/provider.dart';
+
+import '../Service/timerservice.dart';
 
 class PomodoroScreen extends StatelessWidget {
   const PomodoroScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<TimerService>(context);
+
     return Scaffold(
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
@@ -25,7 +30,8 @@ class PomodoroScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () =>
+                Provider.of<TimerService>(context, listen: false).reset(),
             icon: const Icon(
               Icons.refresh,
               color: Colors.white,
