@@ -10,6 +10,7 @@ class TimerService extends ChangeNotifier {
   int rounds = 0;
   int goal = 0;
   String currentState = "FOCUS";
+  int userGoal = 5;
 
   double selectedBreak = 300;
   double currentBreakDuration = 300;
@@ -48,43 +49,29 @@ class TimerService extends ChangeNotifier {
   }
 
   void handleNextRound() {
-    // if (currentState == "FOCUS" && rounds == 3) {
-    //   currentState = "BREAK";
-    //   currentDuration = 300;
-    //   selectedTime = 300;
-    //   rounds++;
-    //   goal++;
-    // } else if (currentState == "BREAK") {
-    //   currentState = "FOCUS";
-    //   // currentDuration = selectedTime;
-    //   currentDuration = 1500;
-    //   // selectedTime = 1500;
-    // } else if (currentState == "FOCUS" && rounds == 3) {
-    //   currentState = "LONGBREAK";
-    //   currentDuration = 1500;
-    //   selectedTime = 1500;
-    //   rounds++;
-    //   goal++;
-    // } else if (currentState == "LONGBREAK") {
-    //   currentState = "FOCUS";
-    //   currentDuration = 1500;
-    //   selectedTime = 1500;
-    //   rounds = 0;
-    // }
-
-    if (currentState == "FOCUS" && rounds < 3) {
-      currentState = "BREAK";
-      currentDuration = selectedBreak;
-      rounds++;
-      goal++;
-    } else if (currentState == "FOCUS" && rounds == 3) {
-      currentState = "LONGBREAK";
-      currentDuration = 900;
-      rounds++;
-      goal++;
-    } else if (currentState == "BREAK") {
-      currentState = "FOCUS";
-      currentDuration = selectedTime;
+    if (goal < userGoal) {
+      if (currentState == "FOCUS" && rounds < 3) {
+        currentState = "BREAK";
+        currentDuration = selectedBreak;
+        rounds++;
+        goal++;
+      } else if (currentState == "FOCUS" && rounds == 3) {
+        currentState = "LONGBREAK";
+        // currentDuration = 900;
+        currentDuration = 10;
+        rounds++;
+        goal++;
+      } else if (currentState == "BREAK") {
+        currentState = "FOCUS";
+        currentDuration = selectedTime;
+        // rounds = 0;
+      } else if (currentState == "LONGBREAK") {
+        currentState = "FOCUS";
+        currentDuration = selectedTime;
+        rounds = 0;
+      }
+    } else {
+      currentState = "DONE";
     }
 
     notifyListeners();

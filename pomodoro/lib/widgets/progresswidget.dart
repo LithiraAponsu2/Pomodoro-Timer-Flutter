@@ -26,12 +26,15 @@ class ProgressWidget extends StatelessWidget {
                 FontWeight.w700,
               ),
             ),
-            Text(
-              "${provider.goal.toString().padLeft(2, '0')}/12",
-              style: textStyle(
-                20,
-                Color.fromARGB(255, 152, 159, 198),
-                FontWeight.w700,
+            InkWell(
+              // onTap: ,
+              child: Text(
+                "${provider.goal.toString().padLeft(provider.userGoal.toString().length, '0')}/${provider.userGoal}",
+                style: textStyle(
+                  20,
+                  Color.fromARGB(255, 152, 159, 198),
+                  FontWeight.w700,
+                ),
               ),
             )
           ],

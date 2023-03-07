@@ -21,7 +21,7 @@ class TimeOptions extends StatelessWidget {
         color: Color.fromARGB(255, 21, 26, 47),
       ),
       child: SingleChildScrollView(
-        controller: ScrollController(initialScrollOffset: 230.0),
+        controller: ScrollController(initialScrollOffset: 300.0),
         scrollDirection: Axis.horizontal,
         child: Row(
           children: selectedTimes.map((time) {
@@ -31,8 +31,8 @@ class TimeOptions extends StatelessWidget {
               ),
               child: Container(
                   margin: const EdgeInsets.only(
-                    left: 5,
-                    right: 5,
+                    left: 10,
+                    right: 10,
                   ),
                   width: 55,
                   height: 35,
