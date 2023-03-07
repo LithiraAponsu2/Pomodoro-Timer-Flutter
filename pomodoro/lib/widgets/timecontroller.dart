@@ -16,8 +16,8 @@ class _TimeControllerState extends State<TimeController> {
     final provider = Provider.of<TimerService>(context);
 
     return Container(
-      width: 100,
-      height: 100,
+      width: 80,
+      height: 80,
       decoration:
           const BoxDecoration(color: Colors.black26, shape: BoxShape.circle),
       child: IconButton(
@@ -25,7 +25,7 @@ class _TimeControllerState extends State<TimeController> {
             ? const Icon(Icons.pause)
             : const Icon(Icons.play_arrow_sharp),
         color: Colors.white,
-        iconSize: 55,
+        iconSize: 50,
         onPressed: () => provider.timerPlaying
             ? Provider.of<TimerService>(context, listen: false).pause()
             : Provider.of<TimerService>(context, listen: false).start(),

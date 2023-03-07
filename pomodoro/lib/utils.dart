@@ -10,6 +10,8 @@ TextStyle textStyle(double size, [Color? color, FontWeight? fw]) {
 }
 
 List selectedTimes = [
+  "10",
+  "60",
   "300",
   "600",
   "900",
@@ -21,4 +23,14 @@ List selectedTimes = [
   "2700",
   "3000",
   "3300",
+];
+
+List selectedBreaks = [
+  "10",
+  "60",
+  "120",
+  "300",
+  "480",
+  "600",
+  "900",
 ];

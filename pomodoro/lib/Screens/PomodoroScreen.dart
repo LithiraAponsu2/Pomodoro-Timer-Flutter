@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pomodoro/utils.dart';
+import 'package:pomodoro/widgets/breakoptions.dart';
+import 'package:pomodoro/widgets/progressbar.dart';
+import 'package:pomodoro/widgets/progresstree.dart';
 import 'package:pomodoro/widgets/progresswidget.dart';
 import 'package:pomodoro/widgets/timecontroller.dart';
 import 'package:pomodoro/widgets/timeoptions.dart';
@@ -16,15 +19,17 @@ class PomodoroScreen extends StatelessWidget {
     final provider = Provider.of<TimerService>(context);
 
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Color.fromARGB(255, 31, 34, 62),
+      // backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Color.fromARGB(255, 31, 34, 62),
         title: Text(
           "Pomodoro",
           style: textStyle(
             25,
-            Colors.white,
+            Color.fromARGB(255, 217, 224, 250),
             FontWeight.w700,
           ),
         ),
@@ -34,7 +39,7 @@ class PomodoroScreen extends StatelessWidget {
                 Provider.of<TimerService>(context, listen: false).reset(),
             icon: const Icon(
               Icons.refresh,
-              color: Colors.white,
+              color: Color.fromARGB(100, 152, 159, 198),
               size: 40,
             ),
           )
@@ -44,21 +49,55 @@ class PomodoroScreen extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           child: Column(
-            children: const [
+            children: [
               SizedBox(
                 height: 15,
               ),
+              Stack(
+                children: [
+                  ProgressBar(),
+                  ProgressTree(),
+                ],
+              ),
+              // ProgressTree(),
+              SizedBox(
+                height: 20,
+              ),
               TimerCard(),
               SizedBox(
-                height: 40,
+                height: 20,
+              ),
+              Text(
+                "Focus Time",
+                style: textStyle(
+                  18,
+                  Color.fromARGB(255, 231, 120, 116),
+                  FontWeight.normal,
+                ),
               ),
               TimeOptions(),
               SizedBox(
-                height: 40,
+                height: 5,
+              ),
+              Text(
+                "Break",
+                style: textStyle(
+                  18,
+                  Color.fromARGB(255, 231, 120, 116),
+                  FontWeight.normal,
+                ),
+              ),
+              BreakOptions(),
+              SizedBox(
+                height: 1,
+              ),
+              // ProgressBar(),
+              SizedBox(
+                height: 20,
               ),
               TimeController(),
               SizedBox(
-                height: 40,
+                height: 20,
               ),
               ProgressWidget(),
             ],

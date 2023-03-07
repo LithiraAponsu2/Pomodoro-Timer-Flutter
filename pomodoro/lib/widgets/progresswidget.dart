@@ -19,18 +19,18 @@ class ProgressWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              "${provider.rounds}/4",
+              '${provider.rounds}/4',
               style: textStyle(
-                30,
-                Colors.grey[350],
+                20,
+                Color.fromARGB(255, 152, 159, 198),
                 FontWeight.w700,
               ),
             ),
             Text(
-              "${provider.goal}/12",
+              "${provider.goal.toString().padLeft(2, '0')}/12",
               style: textStyle(
-                30,
-                Colors.grey[350],
+                20,
+                Color.fromARGB(255, 152, 159, 198),
                 FontWeight.w700,
               ),
             )
@@ -45,16 +45,16 @@ class ProgressWidget extends StatelessWidget {
             Text(
               "Round",
               style: textStyle(
-                25,
-                Colors.grey[350],
+                20,
+                Color.fromARGB(255, 152, 159, 198),
                 FontWeight.w700,
               ),
             ),
             Text(
-              "Goal",
+              "Goal   ",
               style: textStyle(
-                25,
-                Colors.grey[350],
+                20,
+                Color.fromARGB(255, 152, 159, 198),
                 FontWeight.w700,
               ),
             )
