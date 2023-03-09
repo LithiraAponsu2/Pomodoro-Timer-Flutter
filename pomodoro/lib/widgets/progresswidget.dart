@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:pomodoro/utils.dart';
 import 'package:provider/provider.dart';

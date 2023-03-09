@@ -10,7 +10,7 @@ class TimerService extends ChangeNotifier {
   int rounds = 0;
   int goal = 0;
   String currentState = "FOCUS";
-  int userGoal = 5;
+  int userGoal = 8;
 
   double selectedBreak = 300;
   double currentBreakDuration = 300;
